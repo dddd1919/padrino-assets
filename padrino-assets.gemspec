@@ -25,6 +25,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sprockets', '~> 2.11'
   spec.add_dependency 'padrino-core'
   spec.add_dependency 'padrino-helpers'
+  spec.add_dependency 'uglifier', '~> 2.5.1'
+  spec.add_dependency 'cssminify', '~> 1.0.2'
 
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '>= 2.0.0'
