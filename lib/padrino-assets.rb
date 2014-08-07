@@ -61,8 +61,8 @@ module Padrino
         app.set :assets_version,  1.0
         app.set :assets_host,     nil
         app.set :compress_assets, true
-        app.set :js_compressor,   Uglifier.new(mangle: true)
-        app.set :css_compressor,  CSSminify.new
+        app.set :js_compressor,   app.environment == :production ? Uglifier.new(mangle: true) : nil
+        app.set :css_compressor,  app.environment == :production ? CSSminify.new : nil
         app.set :index_assets,    -> { app.environment == :production }
         app.set :manifest_file,   -> { File.join(app.public_folder, app.assets_prefix, 'manifest.json') }
         app.set :precompile_assets,  [ /^\w+\.(?!(?:js|css)$)/i, /^application\.(js|css)$/i ]
